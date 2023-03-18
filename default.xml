@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="aosp" fetch="https://android.googlesource.com/" />
+  <remote  name="statix"
+    fetch="https://github.com/StatiXOS/"
+    revision="tm" />
+  <remote  name="github"
+    fetch="https://github.com/" />
+
+  <default revision="master-kernel-build-2021" remote="aosp" sync-j="4" />
+  <superproject name="kernel/superproject" remote="aosp" revision="common-android11-5.4-lts" />
+  <project path="build" name="kernel/build" />
+  <project path="kernel/tests" name="kernel/tests" />
+  <project path="kernel/configs" name="kernel/configs" />
+  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" clone-depth="1" />
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" />
+  <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" />
+  <project path="tools/libufdt" name="platform/system/libufdt" revision="master" remote="aosp" />
+
+  <!-- Kernel -->
+  <project path="kernel/msm-5.4" name="PixelExperience-Devices/kernel_oneplus_martini" remote="github" revision="thirteen" />
+
+  <!-- Eva GCC -->
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-elf" name="android_prebuilts_gcc_linux-x86_aarch64_aarch64-elf" remote="statix" revision="13.0.1" clone-depth="1" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi" name="mvaisakh/gcc-arm" remote="github" revision="d82ade018dd655af90322bb8d6927aa2374dbdcb" clone-depth="1" />
+
+  <!-- AnyKernel3 -->
+  <project path="ak3" name="mvaisakh/AnyKernel3" remote="github" revision="op9p" clone-depth="1" />
+
+  <!-- KernelSU -->
+  <project path="KernelSU" name="tiann/KernelSU" remote="github" revision="main" clone-depth="1" />
+</manifest>
